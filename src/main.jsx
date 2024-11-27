@@ -3,6 +3,7 @@ import './index.css'
 import {createBrowserRouter, RouterProvider} from "react-router-dom";
 import Home from "./routes/home/Home.jsx";
 import Login from "./routes/auth-form/Login.jsx";
+import Book, {bookLoader} from "./routes/bookPage/Book.jsx";
 
 const router = createBrowserRouter([
     {
@@ -12,6 +13,11 @@ const router = createBrowserRouter([
     {
         path: "/login",
         element: <Login/>
+    },
+    {
+        path: "/books/:id",
+        loader: bookLoader,
+        element: <Book/>
     }
 ])
 

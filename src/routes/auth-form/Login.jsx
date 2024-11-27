@@ -32,6 +32,7 @@ const Login = () => {
             mode="horizontal"
             items={items}
             onClick={onClickMenuItem}
+            defaultSelectedKeys={["sign_in"]}
         />
         {isRegister ? <SignInForm/> : <LogInForm/>}
     </Flex>
