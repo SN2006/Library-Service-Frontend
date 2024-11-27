@@ -68,7 +68,7 @@ const Book = () => {
             maxWidth: 500,
         }}
         actions={user.role === "ADMIN" ? [
-            <Link href="/" key="back">Back</Link>,
+            <Link href="/" key="back">All Books</Link>,
             <Button
                 key="delete"
                 color="danger"
@@ -78,7 +78,7 @@ const Book = () => {
                 Delete
             </Button>,
         ] : [
-            <Link href="/" key="back">Back</Link>,
+            <Link href="/" key="back">All Books</Link>,
         ]}
     >
         <Meta

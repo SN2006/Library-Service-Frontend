@@ -3,8 +3,11 @@ import {useEffect, useState} from "react";
 import {request, setAuthToken} from "../../util/axios_helper.js";
 import BookTable from "./BookTable.jsx";
 import AddBookForm from "./AddBookForm.jsx";
+import AddUserForm from "./AddUserForm.jsx";
+import UserTable from "./UserTable.jsx";
 
 const BOOKS_KEY = "books";
+const USERS_KEY = "users";
 const ADD_BOOK_KEY = "add_book";
 const ADD_USER_KEY = "add_user";
 const LOGOUT_KEY = "logout";
@@ -28,6 +31,10 @@ const adminItems = [
     {
         label: "Books",
         key: BOOKS_KEY,
+    },
+    {
+        label: "Users",
+        key: USERS_KEY,
     },
     {
         label: "Add Book",
@@ -57,7 +64,11 @@ const Home = () => {
     }
 
     const onReturnToBooks = () => {
-        setCurrentState(BOOKS_KEY)
+        setCurrentState(BOOKS_KEY);
+    }
+
+    const onReturnToUsers = () => {
+        setCurrentState(USERS_KEY);
     }
 
     useEffect(() => {
@@ -92,7 +103,9 @@ const Home = () => {
         >
         </Menu>
         {currentState === BOOKS_KEY && <BookTable />}
+        {currentState === USERS_KEY && <UserTable/>}
         {currentState === ADD_BOOK_KEY && <AddBookForm user={user} onReturn={onReturnToBooks} />}
+        {currentState === ADD_USER_KEY && <AddUserForm onReturn={onReturnToUsers}/>}
     </Flex>
 }
 
